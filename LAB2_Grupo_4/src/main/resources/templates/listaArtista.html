@@ -11,43 +11,40 @@
 <nav class="navbar bg-body-tertiary justify-content-end">
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" th:href="@{'/distribuidoras/lista'}">Proveedores</a>
+            <a class="nav-link active" aria-current="page" th:href="@{'/listaIntegrantes'}">Integrantes</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" th:href="@{'/distribuidoras/irjuegos'}">Artistas</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" th:href="@{'/distribuidoras/irjuegos'}">Integrantes</a>
+            <a class="nav-link" th:href="@{'/listaProveedores'}">Proveedores</a>
         </li>
 
     </ul>
 </nav>
 <br>
 <div class = "container">
-    <h1 class="container text-center">LISTA DE DISTRIBUIDORAS</h1>
-    <a th:href="@{'/distribuidoras/nuevo'}">
-        <button type="button" class="btn btn-primary">Nueva Distribuidora</button>
+    <h1 class="container text-center">LISTA DE ARTISTAS</h1>
+    <a th:href="@{'/crearArtista'}">
+        <button type="button" class="btn btn-primary">Nuevo Artista</button>
     </a>
     <br>
     <table class="table">
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Name</th>
+            <th scope="col">Nombre</th>
             <th scope="col">Fundacion</th>
-            <th scope="col">Sede</th>
+            <th scope="col">Tipo de musica</th>
         </tr>
         <thead>
         <tbody>
 
-        <tr th:each="artista, indice : ${listaArtista}">
+        <tr th:each="distribuidora, indice : ${listaArtistas}">
 
             <td th:text = "${indice.index +1}"></td>
-            <td th:text = "${distribuidora.nombre}"></td>
-            <td th:text = "${distribuidora.fundacion}"></td>
-            <td th:text = "${distribuidora.sede}"></td>
-            <td> <a class="btn btn-info" th:href="@{'/distribuidoras/editar?id='+${distribuidora.iddistribuidora}}"> Editar</a> </td>
-            <td> <a class="btn btn-danger" th:href="@{'/distribuidoras/borrar?id='+${distribuidora.iddistribuidora}}" > Borrar</a> </td>
+            <td th:text = "${artista.nombreGrupo}"></td>
+            <td th:text = "${artista.fechaCreacion}"></td>
+            <td th:text = "${artista.tipoMusica}"></td>
+            <td> <a class="btn btn-info" th:href="@{'/editarDistrbuidoras?id='+${artista.idArtistas}}"> Editar</a> </td>
+            <td> <a class="btn btn-danger" th:href="@{'/borrarDistribuidoras?id='+${artista.idArtistas}}" > Borrar</a> </td>
 
         </tr>
 
